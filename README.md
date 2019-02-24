@@ -1,5 +1,20 @@
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![github license](https://img.shields.io/github/license/sagersmith8/journal.svg)](https://github.com/sagersmith8/journal/blob/master/LICENSE)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/sagersmith8/journal/graphs/commit-activity)
+[![github release](https://img.shields.io/github/release/sagersmith8/journal.svg)](https://github.com/sagersmith8/journal/releases/)
+[![github all releases](https://img.shields.io/github/downloads/sagersmith8/journal/total.svg)](https://github.com/sagersmith8/journal/releases/)
+
+
 [![codecov](https://codecov.io/gh/sagersmith8/journal/branch/master/graph/badge.svg)](https://codecov.io/gh/sagersmith8/journal)
 [![Build Status](https://travis-ci.com/sagersmith8/journal.png)](https://travis-ci.com/sagersmith8/journal)
+[![github contributors](https://img.shields.io/github/contributors/sagersmith8/journal.svg)](https://github.com/sagersmith8/journal/graphs/contributors/)
+[![github issues](https://img.shields.io/github/issues/sagersmith8/journal.svg)](https://github.com/sagersmith8/journal/issues/)
+[![github issues-closed](https://img.shields.io/github/issues-closed/sagersmith8/journal.svg)](https://github.com/sagersmith8/journal/issues?q=is%3Aissue+is%3Aclosed)
+[![github pull-requests](https://img.shields.io/github/issues-pr/sagersmith8/journal.svg)](https://github.com/sagersmith8/journal/pull/)
+[![github pull-requests closed](https://img.shields.io/github/issues-pr-closed/sagersmith8/journal.svg)](https://github.com/sagersmith8/journal/pull/)
+
+
 
 # journal
 ---
