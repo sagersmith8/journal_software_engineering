@@ -7,7 +7,10 @@ import unittest
 class JournalTest(unittest.TestCase):
     @classmethod
     def setup_class(cls):
-        cls.journal_path = os.path.join(os.path.expanduser(os.getcwd()), 'journal')
+        cls.journal_path = os.path.join(
+            os.path.expanduser(os.getcwd()),
+            'journal'
+        )
         cls.journal = journal.Journal(cls.journal_path)
 
     @classmethod

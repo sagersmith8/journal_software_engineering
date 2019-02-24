@@ -63,7 +63,12 @@ class Journal:
         self.todo.commit('--allow-empty', '-m', entry)
 
     def standup(self, repo, before, after):
-        print('\t{}{}{}{}'.format(Style.BRIGHT, Fore.MAGENTA, self.journal_name_map[repo], Style.RESET_ALL))
+        print('\t{}{}{}{}'.format(
+            Style.BRIGHT,
+            Fore.MAGENTA,
+            self.journal_name_map[repo],
+            Style.RESET_ALL
+        ))
         git_log_args = [
             '--pretty=format:"%s + %Cgreen[%cr]%Creset"',
             '--abbrev-commit'
@@ -75,7 +80,11 @@ class Journal:
         logs = repo.log(*git_log_args).split('\n')
         if logs == [u'']:
             print('{}{}{}'.format(
-                Fore.RED, Style.BRIGHT, 'No logs found for specified time frame', Fore.RESET, Style.RESET_ALL)
+                Fore.RED,
+                Style.BRIGHT,
+                'No logs found for specified time frame',
+                Fore.RESET,
+                Style.RESET_ALL)
             )
             return
         for log in logs:
@@ -97,18 +106,50 @@ class Journal:
                 \tjournal location: {}
                 \tnotes location: {}
                 \tticket location: {}
-                \ttodo location: {}'''.format(self.journal_path, self.notes_path, self.ticket_path, self.todo_path),
+                \ttodo location: {}'''.format(
+                self.journal_path,
+                self.notes_path,
+                self.ticket_path,
+                self.todo_path
+            ),
             epilog='made by sage smith'
         )
-        parser.add_argument('entry', nargs='?', type=str, help='entry to enter in journal')
-        parser.add_argument('-t', '--ticket', action='store_true', help='specifies ticket journal')
-        parser.add_argument('-d', '--do', action='store_true', help='specifies todo journal')
-        parser.add_argument('-n', '--note', action='store_true', help='specifies note journal')
-        parser.add_argument('-c', '--complete', action='store_true', help='makes a completed entry in journal')
-        parser.add_argument('-s', '--standup', action='store_true', help='prints stand up')
-        parser.add_argument('-j', '--journal', action='store_true', help='specifies entire journal')
-        parser.add_argument('-b', '--before', type=str, help='specifies to grab standup logs before entered date')
-        parser.add_argument('-a', '--after', type=str, help='specifies to grab standup logs after entered date')
+        parser.add_argument(
+            'entry', nargs='?', type=str,
+            help='entry to enter in journal'
+        )
+        parser.add_argument(
+            '-t', '--ticket', action='store_true',
+            help='specifies ticket journal'
+        )
+        parser.add_argument(
+            '-d', '--do', action='store_true',
+            help='specifies todo journal'
+        )
+        parser.add_argument(
+            '-n', '--note', action='store_true',
+            help='specifies note journal'
+        )
+        parser.add_argument(
+            '-c', '--complete', action='store_true',
+            help='makes a completed entry in journal'
+        )
+        parser.add_argument(
+            '-s', '--standup', action='store_true',
+            help='prints stand up'
+        )
+        parser.add_argument(
+            '-j', '--journal', action='store_true',
+            help='specifies entire journal'
+        )
+        parser.add_argument(
+            '-b', '--before', type=str,
+            help='specifies to grab standup logs before entered date'
+        )
+        parser.add_argument(
+            '-a', '--after', type=str,
+            help='specifies to grab standup logs after entered date'
+        )
         args = parser.parse_args()
         if args.standup:
             if args.ticket:
@@ -117,7 +158,7 @@ class Journal:
                 self.standup(self.todo, args.before, args.after)
             if args.note:
                 self.standup(self.notes, args.before, args.after)
-            if not args.ticket and not args.do and not args.note or args.journal:
+            if not args.ticket and not args.do and not args.note or args.journal:  # NOQA
                 self.standup(self.journal, args.before, args.after)
         else:
             if args.ticket:
@@ -126,7 +167,7 @@ class Journal:
                 self.todo_entry(args.entry)
             if args.note:
                 self.notes_entry(args.entry)
-            if not args.ticket and not args.do and not args.note or args.journal:
+            if not args.ticket and not args.do and not args.note or args.journal:  # NOQA
                 self.journal_entry(args.entry)
 
 
