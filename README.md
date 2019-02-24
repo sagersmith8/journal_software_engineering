@@ -9,7 +9,7 @@ Engineering notebook designed for agile based software engineering
 - [usage](#usage)
 - [versions](#versions)
   - [0.0.1](#0.0.1)
-- [liscense](liscence)
+- [license](#licence)
 
 ## installation
 ---
@@ -66,6 +66,6 @@ made by sage smith
 #### 0.0.1
 Initial release. Includes `journal` and `standup` commands
 
-## liscense
+## license
 ---
-Apache Commons
+[Apache Commons 2.0](https://www.apache.org/licenses/LICENSE-2.0)
