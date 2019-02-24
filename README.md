@@ -26,7 +26,9 @@ pip install journal
 
 ## dev-dependencies
 --
+[codecov](https://pypi.org/project/codecov/)
 [flake8](https://pypi.org/project/flake8/)
+[mock](https://pypi.org/project/mock/)
 [nose](https://pypi.org/project/nose/)
 
 ## usage
