@@ -1,5 +1,5 @@
 [![codecov](https://codecov.io/gh/sagersmith8/journal/branch/master/graph/badge.svg)](https://codecov.io/gh/sagersmith8/journal)
-[![Build Status](https://travis-ci.org/sagersmith8/journal.png)](https://travis-ci.org/sagersmith8/journal)
+[![Build Status](https://travis-ci.org/sagersmith8/journal.png)](https://travis-ci.com/sagersmith8/journal)
 
 # journal
 ---
