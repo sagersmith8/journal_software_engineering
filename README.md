@@ -1,3 +1,6 @@
+[![codecov](https://codecov.io/gh/sagersmith8/journal/branch/master/graph/badge.svg)](https://codecov.io/gh/sagersmith8/journal)
+[![Build Status](https://travis-ci.org/sagersmith8/journal.png)](https://travis-ci.org/sagersmith8/journal)
+
 # journal
 ---
 
@@ -17,6 +20,7 @@ Engineering notebook designed for agile based software engineering
 ```bash
 pip install journal
 ``` 
+
 ## dependencies
 ---
 [python 2.7](https://www.python.org/download/releases/2.7/)
