@@ -3,9 +3,8 @@ python:
   - 2.7
 install:
 - pip install tox-travis
+- pip install codecov
 script:
- - git config --global user.email "sagersmith8@.com"
- - git config --global user.name "Sage Smith"
  - tox -v -e py
 after_success:
  - codecov
