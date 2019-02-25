@@ -10,6 +10,7 @@ codecov = "==2.0.15"
 pytest = "*"
 pytest-cov = "*"
 twine = "*"
+tox = "*"
 
 [packages]
 colorama = "==0.4.1"

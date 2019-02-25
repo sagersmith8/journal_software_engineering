@@ -14,24 +14,40 @@ class Journal:
         if not os.path.exists(self.journal_path):
             os.makedirs(self.journal_path)
             r = git.Repo.init(self.journal_path)
+            r.config_writer().set_value("user", "name", "journal").release()
+            r.config_writer().set_value(
+                "user", "email", "journal@gmail.com"
+            ).release()
             readme_path = os.path.join(self.journal_path, 'README.md')
             open(readme_path, 'wb').close()
             r.index.add([readme_path])
             r.index.commit('initial commit')
         if not os.path.exists(self.notes_path):
             r = git.Repo.init(self.notes_path)
+            r.config_writer().set_value("user", "name", "notes").release()
+            r.config_writer().set_value(
+                "user", "email", "notes@gmail.com"
+            ).release()
             readme_path = os.path.join(self.notes_path, 'README.md')
             open(readme_path, 'wb').close()
             r.index.add([readme_path])
             r.index.commit('initial commit')
         if not os.path.exists(self.todo_path):
             r = git.Repo.init(self.todo_path)
+            r.config_writer().set_value("user", "name", "todo").release()
+            r.config_writer().set_value(
+                "user", "email", "todo@gmail.com"
+            ).release()
             readme_path = os.path.join(self.todo_path, 'README.md')
             open(readme_path, 'wb').close()
             r.index.add([readme_path])
             r.index.commit('initial commit')
         if not os.path.exists(self.ticket_path):
             r = git.Repo.init(self.ticket_path)
+            r.config_writer().set_value("user", "name", "ticket").release()
+            r.config_writer().set_value(
+                "user", "email", "ticket@gmail.com"
+            ).release()
             readme_path = os.path.join(self.ticket_path, 'README.md')
             open(readme_path, 'wb').close()
             r.index.add([readme_path])
@@ -49,25 +65,25 @@ class Journal:
 
     def journal_entry(self, entry):
         self.journal_repo.commit(
-            '--author="journal <>"', '--allow-empty', '-m', entry
+            '--allow-empty', '-m', entry
         )
 
     def notes_entry(self, entry):
         self.journal_entry(entry)
         self.notes_repo.commit(
-            '--author="journal <>"', '--allow-empty', '-m', entry
+            '--allow-empty', '-m', entry
         )
 
     def ticket_entry(self, entry):
         self.journal_entry(entry)
         self.ticket_repo.commit(
-            '--author="journal <>"', '--allow-empty', '-m', entry
+            '--allow-empty', '-m', entry
         )
 
     def todo_entry(self, entry):
         self.journal_entry(entry)
         self.todo_repo.commit(
-            '--author="journal <>"', '--allow-empty', '-m', entry
+            '--allow-empty', '-m', entry
         )
 
     def standup(self, repo, before, after):
