@@ -5,6 +5,8 @@ python:
 install:
 - pip install tox-travis
 script:
+ - git config --global user.email "travis@test.com"
+ - git config --global user.name "Travis CI"
  - tox -v -e py
 after_success:
  - codecov
