@@ -4,7 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setup(
     name="journal-software-engineering",
-    version="0.0.2",
+    version_format='{tag}.dev{commits}+{sha}',
+    setup_requires=['very-good-setuptools-git-version'],
     py_modules=["journal"],
     package_dir={'': 'src'},
     install_requires=['GitPython==2.1.11', 'colorama==0.4.1'],
