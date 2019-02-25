@@ -48,19 +48,27 @@ class Journal:
         }
 
     def journal_entry(self, entry):
-        self.journal_repo.commit('--allow-empty', '-m', entry)
+        self.journal_repo.commit(
+            '--author="journal <>"', '--allow-empty', '-m', entry
+        )
 
     def notes_entry(self, entry):
         self.journal_entry(entry)
-        self.notes_repo.commit('--allow-empty', '-m', entry)
+        self.notes_repo.commit(
+            '--author="journal <>"', '--allow-empty', '-m', entry
+        )
 
     def ticket_entry(self, entry):
         self.journal_entry(entry)
-        self.ticket_repo.commit('--allow-empty', '-m', entry)
+        self.ticket_repo.commit(
+            '--author="journal <>"', '--allow-empty', '-m', entry
+        )
 
     def todo_entry(self, entry):
         self.journal_entry(entry)
-        self.todo_repo.commit('--allow-empty', '-m', entry)
+        self.todo_repo.commit(
+            '--author="journal <>"', '--allow-empty', '-m', entry
+        )
 
     def standup(self, repo, before, after):
         print('\t{}{}{}{}'.format(
