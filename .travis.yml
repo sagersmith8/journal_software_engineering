@@ -11,8 +11,7 @@ after_success:
 deploy:
   provider: pypi
   user: sagersmith8
-  password:
-    secure: PYPI_PW
+  password: $PYPI_PW
   distributions: sdist bdist_wheel
   on:
     tags: true
