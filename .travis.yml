@@ -2,8 +2,18 @@ language: python
 python:
   - 2.7
 install:
-- pip install -r requirements-dev.txt
+- pip install -r tox
 script:
- - nosetests --with-coverage test
+ - tox -v -e py
  - flake8 .
+after_success:
  - codecov
+deploy:
+  provider: pypi
+  user: sagersmith8
+  password:
+    secure: PYPI_PW
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    python: 2.7
