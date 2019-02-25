@@ -12,6 +12,7 @@ def get_version():
     for branch in branches:
         if '* ' in branch:
             return branch[2:]
+        else:
 
 
 setup(
