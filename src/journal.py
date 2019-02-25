@@ -36,31 +36,31 @@ class Journal:
             open(readme_path, 'wb').close()
             r.index.add([readme_path])
             r.index.commit('initial commit')
-        self.journal = git.Repo(self.journal_path).git
-        self.ticket = git.Repo(self.ticket_path).git
-        self.notes = git.Repo(self.notes_path).git
-        self.todo = git.Repo(self.todo_path).git
+        self.journal_repo = git.Repo(self.journal_path).git
+        self.ticket_repo = git.Repo(self.ticket_path).git
+        self.notes_repo = git.Repo(self.notes_path).git
+        self.todo_repo = git.Repo(self.todo_path).git
         self.journal_name_map = {
-            self.journal: "JOURNAL",
-            self.ticket: "TICKET",
-            self.notes: "NOTES",
-            self.todo: "TODO"
+            self.journal_repo: "JOURNAL",
+            self.ticket_repo: "TICKET",
+            self.notes_repo: "NOTES",
+            self.todo_repo: "TODO"
         }
 
     def journal_entry(self, entry):
-        self.journal.commit('--allow-empty', '-m', entry)
+        self.journal_repo.commit('--allow-empty', '-m', entry)
 
     def notes_entry(self, entry):
         self.journal_entry(entry)
-        self.notes.commit('--allow-empty', '-m', entry)
+        self.notes_repo.commit('--allow-empty', '-m', entry)
 
     def ticket_entry(self, entry):
         self.journal_entry(entry)
-        self.ticket.commit('--allow-empty', '-m', entry)
+        self.ticket_repo.commit('--allow-empty', '-m', entry)
 
     def todo_entry(self, entry):
         self.journal_entry(entry)
-        self.todo.commit('--allow-empty', '-m', entry)
+        self.todo_repo.commit('--allow-empty', '-m', entry)
 
     def standup(self, repo, before, after):
         print('\t{}{}{}{}'.format(
@@ -153,13 +153,13 @@ class Journal:
         args = parser.parse_args()
         if args.standup:
             if args.ticket:
-                self.standup(self.ticket, args.before, args.after)
+                self.standup(self.ticket_repo, args.before, args.after)
             if args.do:
-                self.standup(self.todo, args.before, args.after)
+                self.standup(self.todo_repo, args.before, args.after)
             if args.note:
-                self.standup(self.notes, args.before, args.after)
+                self.standup(self.notes_repo, args.before, args.after)
             if not args.ticket and not args.do and not args.note or args.journal:  # NOQA
-                self.standup(self.journal, args.before, args.after)
+                self.standup(self.journal_repo, args.before, args.after)
         else:
             if args.ticket:
                 self.ticket_entry(args.entry)

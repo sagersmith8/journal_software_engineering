@@ -36,5 +36,5 @@ def test_journal_todo(journal_mock):
 
 
 def test_standup(journal_mock):
-    journal_mock.standup(journal_mock.journal, None, None)
+    journal_mock.standup(journal_mock.journal_repo, None, None)
     assert True
