@@ -9,12 +9,11 @@ mock = "==1.0.1"
 codecov = "==2.0.15"
 pytest = "*"
 pytest-cov = "*"
+twine = "*"
 
 [packages]
 colorama = "==0.4.1"
 GitPython = "==2.1.11"
-twine = "*"
-pytest = "*"
 
 [requires]
 python_version = "2.7"

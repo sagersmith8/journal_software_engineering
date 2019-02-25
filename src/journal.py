@@ -70,7 +70,7 @@ class Journal:
             Style.RESET_ALL
         ))
         git_log_args = [
-            '--pretty=format:"%s + %Cgreen[%cr]%Creset"',
+            '--pretty=format:"%s ~ %Cgreen[%cr]%Creset"',
             '--abbrev-commit'
         ]
         if before:
@@ -88,7 +88,7 @@ class Journal:
             )
             return
         for log in logs:
-            m = re.search("(.*) \+ (.*)", log)
+            m = re.search("(.*) ~ (.*)", log)
             message, time = m.groups()
             print('{}*{} {}{}{} - {}{}{}'.format(
                 Fore.RED, Fore.RESET,
