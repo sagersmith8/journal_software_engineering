@@ -1,5 +1,6 @@
 from setuptools import setup
 import subprocess
+import sys
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -12,10 +13,7 @@ def get_version():
     for branch in branches:
         if '* ' in branch and not 'no branch' in branch:
             return branch[2:]
-        else:
-            git_tag = subprocess.Popen(['git', 'tag'], stdout=subprocess.PIPE)
-            out, err = git_tag.communicate()
-            return out
+    sys.exit(0)
 
 
 setup(
