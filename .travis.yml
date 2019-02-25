@@ -6,13 +6,20 @@ install:
 - pip install codecov
 script:
  - tox -v -e py
-after_success:
  - codecov
+after_success:
+  - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && git config --global user.email "builds@travis-ci.com" && git config --global user.name "Travis CI" && export GIT_TAG=0.0.$TRAVIS_BUILD_NUMBER && git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER" && git push -q https://${GIT_TOKEN}@github.com/sagersmith8/journal --tags && ls -R
 deploy:
-  provider: pypi
-  user: sagersmith8
-  password: $PYPI_PW
-  distributions: sdist bdist_wheel
-  on:
-    tags: true
-    python: 2.7
+  - provider: pypi
+    user: sagersmith8
+    password: $PYPI_PW
+    distributions: sdist bdist_wheel release
+    on:
+      tags: true
+      python: 2.7
+  - provider: releases
+    api_key: $GIT_TOKEN
+    file: dist/*
+    skip_cleanup: true
+    on:
+      tags: true

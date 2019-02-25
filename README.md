@@ -25,15 +25,13 @@ Engineering notebook designed for agile based software engineering
 - [dependencies](#dependencies)
 - [dev-dependencies](#dev-dependencies)
 - [usage](#usage)
-- [versions](#versions)
-  - [0.0.1](#0.0.1)
 - [license](#licence)
 
 ## installation
 ---
 
 ```bash
-pip install journal
+pip install journal-software-engineering
 ``` 
 
 ## dependencies
@@ -80,12 +78,6 @@ optional arguments:
 
 made by sage smith
 ```
-
-## versions
----
-
-#### 0.0.1
-Initial release. Includes `journal` and `standup` commands
 
 ## license
 ---
