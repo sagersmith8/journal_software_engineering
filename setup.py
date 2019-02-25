@@ -10,9 +10,12 @@ def get_version():
     out, err = git_branch.communicate()
     branches = out.split('\n')
     for branch in branches:
-        if '* ' in branch:
+        if '* ' in branch and not 'no branch' in branch:
             return branch[2:]
         else:
+            git_tag = subprocess.Popen(['git', 'tag'], stdout=subprocess.PIPE)
+            out, err = git_tag.communicate()
+            return out
 
 
 setup(
