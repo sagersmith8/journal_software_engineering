@@ -11,8 +11,10 @@ setup(
     py_modules=["journal"],
     package_dir={'': 'src'},
     install_requires=['GitPython==2.1.11', 'colorama==0.4.1'],
-    test_suite='nose.collector',
-    tests_require=['nose'],
+    setup_requires=[
+        'pytest-runner',
+    ],
+    tests_require=['pytest'],
     # metadata to display on PyPI
     author="Sage Smith",
     author_email="sagersmith8@gmail.com",
