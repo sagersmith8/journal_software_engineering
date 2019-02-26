@@ -5,6 +5,16 @@ import re
 from colorama import Fore, Style
 
 
+def last_business_day():
+    import pandas as pd
+    # BDay is business day, not birthday...
+    from pandas.tseries.offsets import BDay
+
+    # pd.datetime is an alias for datetime.datetime
+    today = pd.datetime.today()
+    return (today - BDay(1)).strftime("%Y-%m-%d")
+
+
 class Journal:
     def __init__(self, journal_loc='~/.journal'):
         self.journal_path = os.path.expanduser(journal_loc)
@@ -168,11 +178,18 @@ class Journal:
         )
         parser.add_argument(
             '-b', '--before', type=str,
-            help='specifies to grab standup logs before entered date'
+            help='''
+            specifies to grab standup logs before entered date
+            format: YYYY-MM-DD
+            '''
         )
         parser.add_argument(
             '-a', '--after', type=str,
-            help='specifies to grab standup logs after entered date'
+            help='''
+            specifies to grab standup logs after entered date
+            default: last business day | format: YYYY-MM-DD
+            ''',
+            default=last_business_day()
         )
         args = parser.parse_args()
         if args.standup:

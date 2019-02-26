@@ -11,10 +11,12 @@ pytest = "*"
 pytest-cov = "*"
 twine = "*"
 tox = "*"
+pytest-runner = "*"
 
 [packages]
 colorama = "==0.4.1"
 GitPython = "==2.1.11"
+pandas = "==0.24.1"
 
 [requires]
 python_version = "2.7"

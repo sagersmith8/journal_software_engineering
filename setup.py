@@ -10,7 +10,11 @@ setup(
     version=VERSION,
     py_modules=["journal"],
     package_dir={'': 'src'},
-    install_requires=['GitPython==2.1.11', 'colorama==0.4.1'],
+    install_requires=[
+        'GitPython==2.1.11',
+        'colorama==0.4.1',
+        'pandas==0.24.1'
+    ],
     setup_requires=[
         'pytest-runner',
     ],
