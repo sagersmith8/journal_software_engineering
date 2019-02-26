@@ -1,22 +1,13 @@
 from setuptools import setup
-import subprocess
+import os
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-
-def get_version():
-    git_branch = subprocess.Popen(['git', 'branch'], stdout=subprocess.PIPE)
-    out, err = git_branch.communicate()
-    branches = out.split('\n')
-    for branch in branches:
-        if '* ' in branch:
-            return branch[2:]
-
-
+VERSION = os.getenv("TRAVIS_BRANCH") if os.getenv("TRAVIS_BRANCH") else "test"
 setup(
     name="journal-software-engineering",
-    version=get_version(),
+    version=VERSION,
     py_modules=["journal"],
     package_dir={'': 'src'},
     install_requires=['GitPython==2.1.11', 'colorama==0.4.1'],
