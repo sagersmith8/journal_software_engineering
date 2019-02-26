@@ -23,7 +23,7 @@ deploy:
     password: $PYPI_PW
     distributions: sdist bdist_wheel release
     on:
-      branch: master
+      tags: true
       python: 2.7
   - provider: releases
     api_key: $GIT_TOKEN
