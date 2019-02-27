@@ -56,7 +56,7 @@ setup(
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Utilities',
     ],
@@ -68,7 +68,7 @@ setup(
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
     long_description_content_type="text/x-rst",
-    python_requires='>=3.7',
+    python_requires='>=3.6',
     extras_require={
         # eg:
         #   'rst': ['docutils>=0.11'],

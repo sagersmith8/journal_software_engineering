@@ -1,6 +1,6 @@
-dist: xenial
 language: python
-python: 3.7
+python:
+    - "3.6"
 install:
 - pip install tox-travis
 - pip install codecov
@@ -16,7 +16,7 @@ deploy:
     distributions: sdist bdist_wheel
     on:
       tags: true
-      python: 3.7
+      python: 3.6
   - provider: releases
     api_key: $GIT_TOKEN
     skip_cleanup: true

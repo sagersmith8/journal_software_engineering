@@ -19,4 +19,4 @@ pandas = "==0.24.1"
 gitpython = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
