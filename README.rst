@@ -62,7 +62,7 @@ journal_software_engineering
 Installation
 ============
 
-::
+.. code-block:: bash
     pip install journal-software-engineering
 
 Documentation
