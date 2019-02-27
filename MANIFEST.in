@@ -1,22 +1,11 @@
-graft docs
-graft src
-graft ci
-graft tests
-
-include .coveragerc
-include .editorconfig
-
-include AUTHORS.rst
-include CHANGELOG.rst
-include CONTRIBUTING.rst
-include LICENSE
-include README.rst
-
-include tox.ini .travis.yml appveyor.yml
-
-global-exclude *.py[cod] __pycache__ *.so *.dylib
-
-# added by check_manifest.py
 include *.lock
+include *.rst
 include *.yml
+include .coveragerc
+include LICENSE
 include Pipfile
+include tox.ini
+include .editorconfig
+recursive-include src *.py
+recursive-include tests *.py
+MANIFEST.in

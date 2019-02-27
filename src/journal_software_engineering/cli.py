@@ -16,10 +16,11 @@ Why does this file exist, and why not put this in __main__?
 """
 import argparse
 
-from journal_software_engineering.journal import Journal
-from journal_software_engineering.journal import last_business_day
+from journal import Journal
+from journal import last_business_day
 
 parser = argparse.ArgumentParser(
+    prog='journal',
     description='''
     journal that provides functionality for generic,
     note, ticket, and todo journal entry and lookup
@@ -73,6 +74,7 @@ parser.add_argument(
 
 
 def main(args=None):
+    print('here')
     args = parser.parse_args()
     j = Journal()
     if args.standup:

@@ -63,7 +63,6 @@ Installation
 ============
 
 ::
-
     pip install journal-software-engineering
 
 Documentation
@@ -75,7 +74,37 @@ To use the project:
 .. code-block:: python
 
     import journal_software_engineering
-    journal_software_engineering.longest()
+    journal_software_engineering -h
+
+
+.. code-block:: bash
+
+    usage: journal [-h] [-t] [-d] [-n] [-c] [-s] [-j] [-b BEFORE] [-a AFTER]
+                   [entry]
+
+            journal makes commits to repos in the following locations:
+                journal location: /Users/sagesmith/.journal
+                notes location: /Users/sagesmith/.journal/.notes
+                ticket location: /Users/sagesmith/.journal/.ticket
+                todo location: /Users/sagesmith/.journal/.todo
+
+    positional arguments:
+      entry                 entry to enter in journal
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -t, --ticket          specifies ticket journal
+      -d, --do              specifies todo journal
+      -n, --note            specifies note journal
+      -s, --standup         prints stand up
+      -j, --journal         specifies entire journal
+      -b BEFORE, --before BEFORE
+                            specifies to grab standup logs before entered date
+      -a AFTER, --after AFTER
+                            specifies to grab standup logs after entered date
+
+    made by sage smith
+
 
 
 Development
