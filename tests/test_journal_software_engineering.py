@@ -1,16 +1,18 @@
 import os
 import shutil
+
 import pytest
+
+from journal_software_engineering.journal import Journal
 
 
 @pytest.fixture(scope="module")
 def journal_mock():
-    from src import journal
     journal_path = os.path.join(
         os.path.expanduser(os.getcwd()),
         '.journal'
     )
-    yield journal.Journal(journal_path)
+    yield Journal(journal_path)
     print("Removing created repo...")
     shutil.rmtree(journal_path)
 

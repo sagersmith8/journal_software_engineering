@@ -1,8 +1,9 @@
-import argparse
 import os
-import git
 import re
-from colorama import Fore, Style
+
+import git
+from colorama import Fore
+from colorama import Style
 
 
 def last_business_day():
@@ -130,87 +131,3 @@ class Journal:
                 Fore.GREEN, message, Fore.RESET
             ))
         print
-
-    def main(self):
-        parser = argparse.ArgumentParser(
-            prog='journal',
-            formatter_class=argparse.RawDescriptionHelpFormatter,
-            description='''
-                journal makes commits to repos in the following locations:
-                \tjournal location: {}
-                \tnotes location: {}
-                \tticket location: {}
-                \ttodo location: {}'''.format(
-                self.journal_path,
-                self.notes_path,
-                self.ticket_path,
-                self.todo_path
-            ),
-            epilog='made by sage smith'
-        )
-        parser.add_argument(
-            'entry', nargs='?', type=str,
-            help='entry to enter in journal'
-        )
-        parser.add_argument(
-            '-t', '--ticket', action='store_true',
-            help='specifies ticket journal'
-        )
-        parser.add_argument(
-            '-d', '--do', action='store_true',
-            help='specifies todo journal'
-        )
-        parser.add_argument(
-            '-n', '--note', action='store_true',
-            help='specifies note journal'
-        )
-        parser.add_argument(
-            '-c', '--complete', action='store_true',
-            help='makes a completed entry in journal'
-        )
-        parser.add_argument(
-            '-s', '--standup', action='store_true',
-            help='prints stand up'
-        )
-        parser.add_argument(
-            '-j', '--journal', action='store_true',
-            help='specifies entire journal'
-        )
-        parser.add_argument(
-            '-b', '--before', type=str,
-            help='''
-            specifies to grab standup logs before entered date
-            format: YYYY-MM-DD
-            '''
-        )
-        parser.add_argument(
-            '-a', '--after', type=str,
-            help='''
-            specifies to grab standup logs after entered date
-            default: last business day | format: YYYY-MM-DD
-            ''',
-            default=last_business_day()
-        )
-        args = parser.parse_args()
-        if args.standup:
-            if args.ticket:
-                self.standup(self.ticket_repo, args.before, args.after)
-            if args.do:
-                self.standup(self.todo_repo, args.before, args.after)
-            if args.note:
-                self.standup(self.notes_repo, args.before, args.after)
-            if not args.ticket and not args.do and not args.note or args.journal:  # NOQA
-                self.standup(self.journal_repo, args.before, args.after)
-        else:
-            if args.ticket:
-                self.ticket_entry(args.entry)
-            if args.do:
-                self.todo_entry(args.entry)
-            if args.note:
-                self.notes_entry(args.entry)
-            if not args.ticket and not args.do and not args.note or args.journal:  # NOQA
-                self.journal_entry(args.entry)
-
-
-if __name__ == '__main__':
-    Journal().main()
