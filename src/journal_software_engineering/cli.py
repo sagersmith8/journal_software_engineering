@@ -74,7 +74,6 @@ parser.add_argument(
 
 
 def main(args=None):
-    print('here')
     args = parser.parse_args()
     j = Journal()
     if args.standup:
@@ -86,6 +85,7 @@ def main(args=None):
             j.standup(j.notes_repo, args.before, args.after)
         if not args.ticket and not args.do and not args.note or args.journal:  # NOQA
             j.standup(j.journal_repo, args.before, args.after)
+        return
     else:
         if args.ticket:
             j.ticket_entry(args.entry)
@@ -95,4 +95,5 @@ def main(args=None):
             j.notes_entry(args.entry)
         if not args.ticket and not args.do and not args.note or args.journal:  # NOQA
             j.journal_entry(args.entry)
+        return
     parser.print_help()
