@@ -16,8 +16,8 @@ Why does this file exist, and why not put this in __main__?
 """
 import argparse
 
-from journal import Journal
-from journal import last_business_day
+from journal_software_engineering.journal import Journal
+from journal_software_engineering.journal import last_business_day
 
 parser = argparse.ArgumentParser(
     prog='journal',
